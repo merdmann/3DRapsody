@@ -2,9 +2,9 @@ import * as THREE from "../js/three.js";
 
 document.addEventListener('DOMContentLoaded', function evt(x) {
   console.log('++++++++ App.alive ' + x );
-  
-  
-  var scene = new THREE.Scene();
+
+
+  //var scene = new THREE.Scene();
   var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
 
   var renderer = new THREE.WebGLRenderer();
@@ -29,5 +29,3 @@ document.addEventListener('DOMContentLoaded', function evt(x) {
 
   animate();
 })
-
-
