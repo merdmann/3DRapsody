@@ -18,6 +18,7 @@
   "homepage": "https://github.com/merdmann/3DRapsody#readme",
   "dependencies": {
     "browserify": "^16.5.1",
+    "three-full": "^28.0.2",
     "three.js": "^0.77.1"
   }
 }
