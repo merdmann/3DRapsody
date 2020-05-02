@@ -1,8 +1,10 @@
-import * as THREE from '../node_modules/three-full/sources/objects/Ocean.js'
 
 document.addEventListener('DOMContentLoaded', function evt(x) {
   console.log('++++++++ App.alive ' + x );
 
+  const ref = document.getElementById( "pageFooter")
+  ref.innterHTML = THREE.REVISION;
+  console.log( THREE )
 
   var scene = new THREE.Scene();
   var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
@@ -10,6 +12,8 @@ document.addEventListener('DOMContentLoaded', function evt(x) {
   var renderer = new THREE.WebGLRenderer();
   renderer.setSize( window.innerWidth, window.innerHeight );
   document.body.appendChild( renderer.domElement );
+
+  console.log( renderer.domElement)
 
   var geometry = new THREE.BoxGeometry();
   var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
