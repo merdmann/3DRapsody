@@ -1,35 +1,33 @@
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("html done ....");
 
-document.addEventListener('DOMContentLoaded', function evt(x) {
-  console.log('++++++++ App.alive ' + x );
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-  const ref = document.getElementById( "pageFooter")
-  ref.innterHTML = THREE.REVISION;
-  console.log( THREE )
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
 
-  var scene = new THREE.Scene();
-  var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+    var geometry = new THREE.BoxGeometry();
+    var material = new THREE.MeshPhongMaterial({ color: 0x00ff00 });
+    var cube = new THREE.Mesh(geometry, material);
 
-  var renderer = new THREE.WebGLRenderer();
-  renderer.setSize( window.innerWidth, window.innerHeight );
-  document.body.appendChild( renderer.domElement );
+    scene.add(cube);
+    camera.position.z = 5;
+    var spotLight = new THREE.SpotLight(0xffffff);
+    spotLight.position.set(100, 1000, 100);
 
-  console.log( renderer.domElement)
+    spotLight.castShadow = true;
+    scene.add(spotLight)
 
-  var geometry = new THREE.BoxGeometry();
-  var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-  var cube = new THREE.Mesh( geometry, material );
-  scene.add( cube );
+    const animate = function() {
+        requestAnimationFrame(animate);
 
-  camera.position.z = 5;
+        cube.rotation.x += 0.01;
+        cube.rotation.y += 0.01;
 
-  const animate = function () {
-    requestAnimationFrame( animate );
+        renderer.render(scene, camera);
+    };
 
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
-
-    renderer.render( scene, camera );
-  };
-
-  animate();
+    animate();
 })
