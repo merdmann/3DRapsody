@@ -11,21 +11,6 @@
     height: 32px;
 }
 
-.DateLayout {
-    width: 20%;
-    text-align: center;
-}
-
-.timeLayout {
-    width: 20%;
-    text-align: center;
-}
-
-.summaryLayout {
-    margin-left: auto;
-    margin-right: auto;
-}
-
 body {
     display: grid;
     grid-template-areas: "header header header" "nav article ads" "footer footer footer";
@@ -34,6 +19,15 @@ body {
     grid-gap: 2px;
     height: 100vh;
     margin: 0;
+}
+
+.border {
+    border-style: double;
+}
+
+.canvas {
+    border: 1px Solid 0xFFFFFF;
+    background-color: black;
 }
 
 #pageHeader {
@@ -64,3 +58,5 @@ div {
     padding: 20px;
     background: gold;
 }
+
+.
