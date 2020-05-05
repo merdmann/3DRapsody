@@ -4,9 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.querySelector("canvas");
 
     var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(75, canvas.width / canvas.height, 0.1, 1000);
-    console.log(canvas.width + ", " + canvas.height);
-
+    var camera = new THREE.PerspectiveCamera(50, canvas.width / canvas.height, 0.1, 1000);
     var renderer = new THREE.WebGLRenderer(({ canvas: canvas }));
     renderer.setSize(300, 300);
     renderer.setClearColor(0x0000ff);
@@ -18,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     scene.add(cube);
     camera.position.z = 5;
     var spotLight = new THREE.SpotLight(0xffffff);
-    spotLight.position.set(100, 1000, 100)
+    spotLight.position.set(100, 0, 100);
 
     spotLight.castShadow = true
     scene.add(spotLight)
