@@ -1,19 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log("html done ....");
 
+    const canvas = document.querySelector("canvas");
+
     var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    var camera = new THREE.PerspectiveCamera(75, canvas.width / canvas.height, 0.1, 1000);
+    console.log(canvas.width + ", " + canvas.height);
 
-    var outputCanvas = document.getElementById("OutputCanvas")
-    console.log(outputCanvas);
-
-    var renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.clear
-    document.body.appendChild(renderer.domElement);
+    var renderer = new THREE.WebGLRenderer(({ canvas: canvas }));
+    renderer.setSize(300, 300);
+    renderer.setClearColor(0x0000ff);
 
     var geometry = new THREE.DodecahedronGeometry(1, 0);
-    var material = new THREE.MeshPhongMaterial({ color: 0xffff00, shininess: 0.5 });
+    var material = new THREE.MeshPhongMaterial({ color: 0xffff00, shininess: 1.0 });
     var cube = new THREE.Mesh(geometry, material);
 
     scene.add(cube);
