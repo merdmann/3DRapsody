@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: who am i
+- script: printenv
   displayName: 'Run a one-line script'
 
 - script: |
